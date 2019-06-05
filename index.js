@@ -19,7 +19,7 @@ function generate(doprint) {
 		for (var i = 0; i < 8; i++) {
 			if(fx["itemname" + String(i+1)].value == "NONE")
 				continue;
-						doc.text(String(sno+1) + ".", 15, 112+i*13,optionstxt);
+			doc.text(String(sno+1) + ".", 15, 112+sno*13,optionstxt);
 			doc.text(String(fx["itemname" + String(i+1)].value), 44, 112+sno*13,optionstxt);
 			doc.text(String(fx["gsm" + String(i+1)].value), 90.7, 112+sno*13,optionstxt);
 			doc.text(String(fx["size" + String(i+1)].value), 109.2, 112+sno*13,optionstxt);
