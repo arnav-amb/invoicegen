@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous">
-	</script>
-	<!-- <script src="./jspdf.min.js"></script> -->
-	<script type="text/javascript" src="./index.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="index.js"></script>
  	<title></title>
 </head>
 <style>
@@ -39,6 +37,7 @@
 				  <option value="MG Kraft Paper Carry bag with Handle & Printing">MG Kraft Paper Carry bag with Handle & Printing</option>
 				</select><br>
 			  GSM: <br><input type="number" step="0.01" name="gsm1"><br>
+			  HSN CODE: <br><input type="number" step="1" name="hsn1"><br>
 			  SIZE: <br><input type="text" name="size1"><br>
 			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan1"><br>
 			  BUNDLES: <br><input type="number" step="1" name="bund1"><br>
@@ -58,6 +57,7 @@
 				  <option value="MG Kraft Paper Carry bag with Handle & Printing">MG Kraft Paper Carry bag with Handle & Printing</option>
 				</select><br>
 			  GSM: <br><input type="number" step="0.01" name="gsm2"><br>
+			  HSN CODE: <br><input type="number" step="1" name="hsn2"><br>
 			  SIZE: <br><input type="text" name="size2"><br>
 			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan2"><br>
 			  BUNDLES: <br><input type="number" step="1" name="bund2"><br>
@@ -79,6 +79,7 @@
 				  <option value="MG Kraft Paper Carry bag with Handle & Printing">MG Kraft Paper Carry bag with Handle & Printing</option>
 				</select><br>
 			  GSM: <br><input type="number" step="0.01" name="gsm3"><br>
+			  HSN CODE: <br><input type="number" step="1" name="hsn3"><br>
 			  SIZE: <br><input type="text" name="size3"><br>
 			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan3"><br>
 			  BUNDLES: <br><input type="number" step="1" name="bund3"><br>
@@ -98,6 +99,7 @@
 				  <option value="MG Kraft Paper Carry bag with Handle & Printing">MG Kraft Paper Carry bag with Handle & Printing</option>
 				</select><br>
 			  GSM: <br><input type="number" step="0.01" name="gsm4"><br>
+			  HSN CODE: <br><input type="number" step="1" name="hsn4"><br>
 			  SIZE: <br><input type="text" name="size4"><br>
 			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan4"><br>
 			  BUNDLES: <br><input type="number" step="1" name="bund4"><br>
@@ -119,6 +121,7 @@
 				  <option value="MG Kraft Paper Carry bag with Handle & Printing">MG Kraft Paper Carry bag with Handle & Printing</option>
 				</select><br>
 			  GSM: <br><input type="number" step="0.01" name="gsm5"><br>
+			  HSN CODE: <br><input type="number" step="1" name="hsn5"><br>
 			  SIZE: <br><input type="text" name="size5"><br>
 			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan5"><br>
 			  BUNDLES: <br><input type="number" step="1" name="bund5"><br>
@@ -138,6 +141,7 @@
 				  <option value="MG Kraft Paper Carry bag with Handle & Printing">MG Kraft Paper Carry bag with Handle & Printing</option>
 				</select><br>
 			  GSM: <br><input type="number" step="0.01" name="gsm6"><br>
+			  HSN CODE: <br><input type="number" step="1" name="hsn6"><br>
 			  SIZE: <br><input type="text" name="size6"><br>
 			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan6"><br>
 			  BUNDLES: <br><input type="number" step="1" name="bund6"><br>
@@ -159,6 +163,7 @@
 				  <option value="MG Kraft Paper Carry bag with Handle & Printing">MG Kraft Paper Carry bag with Handle & Printing</option>
 				</select><br>
 			  GSM: <br><input type="number" step="0.01" name="gsm7"><br>
+			  HSN CODE: <br><input type="number" step="1" name="hsn7"><br>
 			  SIZE: <br><input type="text" name="size7"><br>
 			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan7"><br>
 			  BUNDLES: <br><input type="number" step="1" name="bund7"><br>
@@ -178,6 +183,7 @@
 				  <option value="MG Kraft Paper Carry bag with Handle & Printing">MG Kraft Paper Carry bag with Handle & Printing</option>
 				</select><br>
 			  GSM: <br><input type="number" step="0.01" name="gsm8"><br>
+			  HSN CODE: <br><input type="number" step="1" name="hsn8"><br>
 			  SIZE: <br><input type="text" name="size8"><br>
 			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan8"><br>
 			  BUNDLES: <br><input type="number" step="1" name="bund8"><br>
@@ -190,7 +196,7 @@
 		<input type="checkbox" name="igstq"> APPLY IGST(12%)<br><br>
 		CARRIAGE OUTWARD: <br><input type="number" step="0.01" name="carrout" value="0"><br>
 		Transport/packing/other charges: <br><input type="number" step="0.01" name="otherchg" value="0"><br>
-		LESS ADVANCE: <br><input type="number" step="0.01" name="lessadv" value="0"><br>
+		LESS ADVANCE: <br><input type="number" step="1" name="lessadv" value="0"><br>
 	  	<!-- <input type="submit" value="PRINT INVOICE"> -->
 	</fieldset>
 	</form>
@@ -200,7 +206,3 @@
 	</div>
 </body>
 </html>
-<script>
-	
-
-</script>
