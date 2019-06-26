@@ -10,7 +10,7 @@ function generate(doprint) {
 	doc.text(String(fx["trans"].value), 42, 70.6);
 	doc.text(String(fx["vehnum"].value), 42, 74.9);
 	var optionstxt = {maxWidth : "125"};
-	doc.text(String(fx["billto"].value), 74, 66.3,optionstxt);
+	doc.text([String(fx["billto"].value)], 74, 66.3,optionstxt);
 	doc.setFontType("normal")
 	// ----------------
 	var optionstxt = {align : "center",maxWidth : "45"};
