@@ -37,12 +37,15 @@ function generate(doprint) {
 		sno = sno + 1;
 	}
 	// amt = amt.toFixed(2);
-	var xcgst = parseFloat(amtfinal*0.06);
-	var xsgst = parseFloat(amtfinal*0.06);
-
+	var xcgst = parseFloat(0);
+	var xsgst = parseFloat(0);
 	var xigst = parseFloat(0);
 	if(fx["igstq"].checked == true)
-		xigst = parseFloat(amtfinal*0.12);
+		xigst = parseFloat(amtfinal*0.06);
+    	if(fx["cgstq"].checked == true)
+		xcgst = parseFloat(amtfinal*0.06);
+    	if(fx["sgstq"].checked == true)
+		xsgst = parseFloat(amtfinal*0.06);
 	var xcout = parseFloat(fx["carrout"].value);
 	var xother = parseFloat(fx["otherchg"].value);
 	var xroundtot=parseFloat(amtfinal+xcgst+xsgst+xigst+xcout+xother);
