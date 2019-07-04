@@ -88,8 +88,8 @@ function validateForm(doprint) {
   }
   for(var i = 0;i < 8 ; i++)
   {
-    var x = document.forms["myForm"]["quan + String(i+1)"].value;
-    var y = document.forms["myForm"]["Rate + String(i+1)"].value;
+    var x = document.forms["myForm"]["quan" + String(i+1)].value;
+    var y = document.forms["myForm"]["Rate" + String(i+1)].value;
     var z = document.forms["myForm"]["itemname" + String(i+1)].value;
     if( (z != "" && (x == "" || y == "")) || (z == "" && (x != "" || y != ""))) {
       alert("Enter item " + String(i+1) + " details");
