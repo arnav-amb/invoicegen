@@ -18,7 +18,7 @@ function generate(doprint) {
 	var totquant = 0;
 	var sno=0
 	for (var i = 0; i < 8; i++) {
-		if(fx["itemname" + String(i+1)].value == "NONE")
+		if(fx["itemname" + String(i+1)].value == "")
 			continue;
 		doc.text(String(sno+1) + ".", 15, 112+sno*13,optionstxt);
 		doc.text(String(fx["itemname" + String(i+1)].value), 44, 112+sno*13,optionstxt);
@@ -86,53 +86,15 @@ function validateForm(doprint) {
     alert("Enter Consignee Details");
     return false;
   }
-  var x = document.forms["myForm"]["quan1"].value;
-  var y = document.forms["myForm"]["Rate1"].value;
-  if((x != "" && y == "") || (x == "" && y != "")) {
-    alert("Enter item 1 details");
-    return false;
-  }
-  var x = document.forms["myForm"]["quan2"].value;
-  var y = document.forms["myForm"]["Rate2"].value;
-  if((x != "" && y == "") || (x == "" && y != "")) {
-    alert("Enter item 2 details");
-    return false;
-  }
-  var x = document.forms["myForm"]["quan3"].value;
-  var y = document.forms["myForm"]["Rate3"].value;
-  if((x != "" && y == "") || (x == "" && y != "")) {
-    alert("Enter item 3 details");
-    return false;
-  }
-  var x = document.forms["myForm"]["quan4"].value;
-  var y = document.forms["myForm"]["Rate4"].value;
-  if((x != "" && y == "") || (x == "" && y != "")) {
-    alert("Enter item 4 details");
-    return false;
-  }
-  var x = document.forms["myForm"]["quan1"].value;
-  var y = document.forms["myForm"]["Rate1"].value;
-  if((x != "" && y == "") || (x == "" && y != "")) {
-    alert("Enter item 1 details");
-    return false;
-  }
-  var x = document.forms["myForm"]["quan5"].value;
-  var y = document.forms["myForm"]["Rate5"].value;
-  if((x != "" && y == "") || (x == "" && y != "")) {
-    alert("Enter item 5 details");
-    return false;
-  }
-  var x = document.forms["myForm"]["quan6"].value;
-  var y = document.forms["myForm"]["Rate6"].value;
-  if((x != "" && y == "") || (x == "" && y != "")) {
-    alert("Enter item 6 details");
-    return false;
-  }
-  var x = document.forms["myForm"]["quan7"].value;
-  var y = document.forms["myForm"]["Rate7"].value;
-  if((x != "" && y == "") || (x == "" && y != "")) {
-    alert("Enter item 7 details");
-    return false;
+  for(var i = 0;i < 8 ; i++)
+  {
+    var x = document.forms["myForm"]["quan + String(i+1)"].value;
+    var y = document.forms["myForm"]["Rate + String(i+1)"].value;
+    var z = document.forms["myForm"]["itemname" + String(i+1)].value;
+    if( (z != "" && (x == "" || y == "")) || (z == "" && (x != "" || y != ""))) {
+      alert("Enter item " + String(i+1) + " details");
+      return false;
+    }
   }
   if(doprint == true)
   	generate(true);
