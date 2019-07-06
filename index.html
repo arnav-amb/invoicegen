@@ -7,212 +7,79 @@
 </head>
 <style>
 	body {
-		/*background-image: url("./images/billCanvas.jpg");*/
+		background-color:black;
+		color: white;
 	}
+	input[type="checkbox"]{
+	  width: 20px;
+	  height: 20px;
+	  cursor: pointer;
+	}
+	button{
+	  cursor: pointer;
+	}
+  .itembox {
+    float: left;width: 400px;
+  }
+  .myfieldset {
+  	border: solid #111E6C 5px;
+  }
+  .boxfieldset {
+  	border: solid #7285A5 5px;
+  	max-width: 1200px;
+  	margin: 0 auto;
+  }
+  .itemfieldset {
+  	border: solid #008ECC 5px;
+  }
 </style>
 <body>
-	<form name="myForm" method="post">
-	<fieldset style="margin: 0 auto;max-width: 200px">
-	  <legend style="text-align: center;">INVOICE DETAILS</legend>
-	  INVOICE NUMBER: <br><input type="number" name="invn"><br><br>
-	  INVOICE DATE: <br><input type="date" name="invd"><br><br>
-	  Transport Details: <br><input type="text" name="trans"><br><br>
-	  Vehicle Number: <br><input type="text" name="vehnum"><br><br>
+	<fieldset class="boxfieldset">
+		<legend style="text-align: center;font-size: 40px;color: #7285A5">TS INDUSTRIES INVOICE</legend>
+		<form name="myForm" method="post">
+		<div style="text-align: center;">
+			<fieldset class="myfieldset" style="display:inline;max-width: 200px">
+			  <legend style="text-align: center;">INVOICE DETAILS</legend>
+			  INVOICE NUMBER: <br><input type="number" name="invn"><br><br>
+			  INVOICE DATE: <br><input type="date" name="invd"><br><br>
+			  Transport Details: <br><input type="text" name="trans"><br><br>
+			  Vehicle Number: <br><input type="text" name="vehnum"><br><br>
+			</fieldset>
+			<fieldset class="myfieldset" style="display:inline;max-width: 200px">
+			  <legend style="text-align: center;">CONSIGNEE DETAILS</legend>
+			  Details of Consignee/Billed to:<br><textarea name="billto" rows="12" cols="60"></textarea><br>
+			</fieldset>
+		  <fieldset class="myfieldset" style="max-width: 300px;display:inline;">
+				<legend>ADDITIONAL VALUES</legend>
+				<input type="checkbox" name="igstq"> APPLY IGST(12%)<br><br>
+				<input type="checkbox" name="sgstq"> APPLY SGST(6%)<br><br>
+				<input type="checkbox" name="cgstq"> APPLY CGST(6%)<br><br>
+				CARRIAGE OUTWARD: <br><input type="number" step="0.01" name="carrout" value="0"><br>
+				Transport/packing/other charges: <br><input type="number" step="0.01" name="otherchg" value="0"><br>
+				LESS ADVANCE: <br><input type="number" step="1" name="lessadv" value="0"><br>
+			</fieldset>
+		</div>
+		</form>
+		<fieldset class="myfieldset" style="margin: 0 auto;text-align: center;max-width: 200px">
+	  	<legend>ITEM BUTTONS</legend>
+			<div id="itembuttons" style="text-align: center;padding-bottom: 20px">
+		    <button style="background-color:#F1C40F;padding: 10px;" onclick="addItem()"><span>ADD NEW ITEM</span></button>
+		  </div>
+	  </fieldset>
+		<form name="myForm2" method="post">
+			<div id="items"
+	    style="
+	    display: flex;
+	    flex-wrap: wrap;
+	    max-width: 800px;
+	    margin: 0 auto;
+	    text-align: center;">
+			</div>
+		</form>
+		<div style="text-align: center;padding-bottom: 20px">
+			<button style="background-color:#c7ea46;padding: 10px;" onclick="validateFormUtil()"><span>CHECK AMOUNT</span></button>
+			<button style="background-color:#0b6623;padding: 10px;" onclick="validateForm(true)"><span style="font-size: 20px;color: white">PRINT INVOICE</span></button>
+	  </div>
 	</fieldset>
-	<fieldset style="margin: 0 auto;max-width: 300px">
-	  <legend style="text-align: center;">CONSIGNEE DETAILS</legend>
-	  Details of Consignee/Billed to:<br><textarea name="billto" rows="10" cols="70"></textarea><br>
-	</fieldset>
-	<div style="margin: 0 auto;height: 300px;width: 800px;text-align: center;">
-		<div style="float: left;width: 400px;">
-			<fieldset>
-			  <legend>ITEM 1 DETAILS</legend>
-			  PRODUCT DESC.:<br>
-			   <input type="text" name="itemname1" list="itemname1" size="40">
-			   <datalist id="itemname1">
-			    <option>Snacks Carry Bag with Print</option>
-			    <option>YPL Kraft Grossing Carry bag</option>
-			    <option>YPL Kraft Paper Carry bag with Handle</option>
-			    <option>YPL Kraft Paper Carry bag with Handle & Printing</option>
-			    <option>MG Kraft Paper Carry bag with Handle</option>
-			    <option>MG Kraft Paper Carry bag with Handle & Printing</option>
-			   </datalist><br>
-			  GSM: <br><input type="number" step="0.01" name="gsm1"><br>
-			  HSN CODE: <br><input type="number" step="1" name="hsn1"><br>
-			  SIZE: <br><input type="text" name="size1"><br>
-			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan1"><br>
-			  BUNDLES: <br><input type="number" step="1" name="bund1"><br>
-			  RATE (KG/PIECES): <br><input type="number" step="0.01" name="Rate1"><br>
-			</fieldset>
-		</div>
-		<div style="float: right;width: 400px">
-			<fieldset>
-			  <legend>ITEM 2 DETAILS</legend>
-			  PRODUCT DESC.:<br>
-			   <input type="text" name="itemname2" list="itemname2" size="40">
-			   <datalist id="itemname2">
-			    <option>Snacks Carry Bag with Print</option>
-			    <option>YPL Kraft Grossing Carry bag</option>
-			    <option>YPL Kraft Paper Carry bag with Handle</option>
-			    <option>YPL Kraft Paper Carry bag with Handle & Printing</option>
-			    <option>MG Kraft Paper Carry bag with Handle</option>
-			    <option>MG Kraft Paper Carry bag with Handle & Printing</option>
-			   </datalist><br>
-			  GSM: <br><input type="number" step="0.01" name="gsm2"><br>
-			  HSN CODE: <br><input type="number" step="1" name="hsn2"><br>
-			  SIZE: <br><input type="text" name="size2"><br>
-			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan2"><br>
-			  BUNDLES: <br><input type="number" step="1" name="bund2"><br>
-			  RATE (KG/PIECES): <br><input type="number" step="0.01" name="Rate2"><br>
-			</fieldset>
-		</div>
-	</div>
-	<div style="margin: 0 auto;height: 300px;width: 800px;text-align: center;">
-		<div style="float: left;width: 400px;">
-			<fieldset>
-			  <legend>ITEM 3 DETAILS</legend>
-			  PRODUCT DESC.:<br>
-			   <input type="text" name="itemname3" list="itemname3" size="40">
-			   <datalist id="itemname3">
-			    <option>Snacks Carry Bag with Print</option>
-			    <option>YPL Kraft Grossing Carry bag</option>
-			    <option>YPL Kraft Paper Carry bag with Handle</option>
-			    <option>YPL Kraft Paper Carry bag with Handle & Printing</option>
-			    <option>MG Kraft Paper Carry bag with Handle</option>
-			    <option>MG Kraft Paper Carry bag with Handle & Printing</option>
-			   </datalist><br>
-			  GSM: <br><input type="number" step="0.01" name="gsm3"><br>
-			  HSN CODE: <br><input type="number" step="1" name="hsn3"><br>
-			  SIZE: <br><input type="text" name="size3"><br>
-			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan3"><br>
-			  BUNDLES: <br><input type="number" step="1" name="bund3"><br>
-			  RATE (KG/PIECES): <br><input type="number" step="0.01" name="Rate3"><br>
-			</fieldset>
-		</div>
-		<div style="float: right;width: 400px">
-			<fieldset>
-			  <legend>ITEM 4 DETAILS</legend>
-			  PRODUCT DESC.:<br>
-			   <input type="text" name="itemname4" list="itemname4" size="40">
-			   <datalist id="itemname4">
-			    <option>Snacks Carry Bag with Print</option>
-			    <option>YPL Kraft Grossing Carry bag</option>
-			    <option>YPL Kraft Paper Carry bag with Handle</option>
-			    <option>YPL Kraft Paper Carry bag with Handle & Printing</option>
-			    <option>MG Kraft Paper Carry bag with Handle</option>
-			    <option>MG Kraft Paper Carry bag with Handle & Printing</option>
-			   </datalist><br>
-			  GSM: <br><input type="number" step="0.01" name="gsm4"><br>
-			  HSN CODE: <br><input type="number" step="1" name="hsn4"><br>
-			  SIZE: <br><input type="text" name="size4"><br>
-			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan4"><br>
-			  BUNDLES: <br><input type="number" step="1" name="bund4"><br>
-			  RATE (KG/PIECES): <br><input type="number" step="0.01" name="Rate4"><br>
-			</fieldset>
-		</div>
-	</div>
-	<div style="margin: 0 auto;height: 300px;width: 800px;text-align: center;">
-		<div style="float: left;width: 400px;">
-			<fieldset>
-			  <legend>ITEM 5 DETAILS</legend>
-			  PRODUCT DESC.:<br>
-			   <input type="text" name="itemname5" list="itemname5" size="40">
-			   <datalist id="itemname5">
-			    <option>Snacks Carry Bag with Print</option>
-			    <option>YPL Kraft Grossing Carry bag</option>
-			    <option>YPL Kraft Paper Carry bag with Handle</option>
-			    <option>YPL Kraft Paper Carry bag with Handle & Printing</option>
-			    <option>MG Kraft Paper Carry bag with Handle</option>
-			    <option>MG Kraft Paper Carry bag with Handle & Printing</option>
-			   </datalist><br>
-			  GSM: <br><input type="number" step="0.01" name="gsm5"><br>
-			  HSN CODE: <br><input type="number" step="1" name="hsn5"><br>
-			  SIZE: <br><input type="text" name="size5"><br>
-			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan5"><br>
-			  BUNDLES: <br><input type="number" step="1" name="bund5"><br>
-			  RATE (KG/PIECES): <br><input type="number" step="0.01" name="Rate5"><br>
-			</fieldset>
-		</div>
-		<div style="float: right;width: 400px">
-			<fieldset>
-			  <legend>ITEM 6 DETAILS</legend>
-			  PRODUCT DESC.:<br>
-			   <input type="text" name="itemname6" list="itemname6" size="40">
-			   <datalist id="itemname6">
-			    <option>Snacks Carry Bag with Print</option>
-			    <option>YPL Kraft Grossing Carry bag</option>
-			    <option>YPL Kraft Paper Carry bag with Handle</option>
-			    <option>YPL Kraft Paper Carry bag with Handle & Printing</option>
-			    <option>MG Kraft Paper Carry bag with Handle</option>
-			    <option>MG Kraft Paper Carry bag with Handle & Printing</option>
-			   </datalist><br>
-			  GSM: <br><input type="number" step="0.01" name="gsm6"><br>
-			  HSN CODE: <br><input type="number" step="1" name="hsn6"><br>
-			  SIZE: <br><input type="text" name="size6"><br>
-			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan6"><br>
-			  BUNDLES: <br><input type="number" step="1" name="bund6"><br>
-			  RATE (KG/PIECES): <br><input type="number" step="0.01" name="Rate6"><br>
-			</fieldset>
-		</div>
-	</div>
-	<div style="margin: 0 auto;height: 300px;width: 800px;text-align: center;">
-		<div style="float: left;width: 400px;">
-			<fieldset>
-			  <legend>ITEM 7 DETAILS</legend>
-			  PRODUCT DESC.:<br>
-			   <input type="text" name="itemname7" list="itemname7" size="40">
-			   <datalist id="itemname7">
-			    <option>Snacks Carry Bag with Print</option>
-			    <option>YPL Kraft Grossing Carry bag</option>
-			    <option>YPL Kraft Paper Carry bag with Handle</option>
-			    <option>YPL Kraft Paper Carry bag with Handle & Printing</option>
-			    <option>MG Kraft Paper Carry bag with Handle</option>
-			    <option>MG Kraft Paper Carry bag with Handle & Printing</option>
-			   </datalist><br>
-			  GSM: <br><input type="number" step="0.01" name="gsm7"><br>
-			  HSN CODE: <br><input type="number" step="1" name="hsn7"><br>
-			  SIZE: <br><input type="text" name="size7"><br>
-			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan7"><br>
-			  BUNDLES: <br><input type="number" step="1" name="bund7"><br>
-			  RATE (KG/PIECES): <br><input type="number" step="0.01" name="Rate7"><br>
-			</fieldset>
-		</div>
-		<div style="float: right;width: 400px">
-			<fieldset>
-			  <legend>ITEM 8 DETAILS</legend>
-			  PRODUCT DESC.:<br>
-			   <input type="text" name="itemname8" list="itemname8" size="40">
-			   <datalist id="itemname8">
-			    <option>Snacks Carry Bag with Print</option>
-			    <option>YPL Kraft Grossing Carry bag</option>
-			    <option>YPL Kraft Paper Carry bag with Handle</option>
-			    <option>YPL Kraft Paper Carry bag with Handle & Printing</option>
-			    <option>MG Kraft Paper Carry bag with Handle</option>
-			    <option>MG Kraft Paper Carry bag with Handle & Printing</option>
-			   </datalist><br>
-			  GSM: <br><input type="number" step="0.01" name="gsm8"><br>
-			  HSN CODE: <br><input type="number" step="1" name="hsn8"><br>
-			  SIZE: <br><input type="text" name="size8"><br>
-			  QUANTITY (KG/PIECES): <br><input type="number" step="0.01" name="quan8"><br>
-			  BUNDLES: <br><input type="number" step="1" name="bund8"><br>
-			  RATE (KG/PIECES): <br><input type="number" step="0.01" name="Rate8"><br>
-			</fieldset>
-		</div>
-	</div>
-	<fieldset style="max-width: 300px;margin: 0 auto;text-align: center;">
-		<legend>ADDITIONAL VALUES</legend>
-		<input type="checkbox" name="igstq"> APPLY IGST(12%)<br><br>
-		<input type="checkbox" name="sgstq"> APPLY SGST(6%)<br><br>
-        	<input type="checkbox" name="cgstq"> APPLY CGST(6%)<br><br>
-		CARRIAGE OUTWARD: <br><input type="number" step="0.01" name="carrout" value="0"><br>
-		Transport/packing/other charges: <br><input type="number" step="0.01" name="otherchg" value="0"><br>
-		LESS ADVANCE: <br><input type="number" step="1" name="lessadv" value="0"><br>
-	  	<!-- <input type="submit" value="PRINT INVOICE"> -->
-	</fieldset>
-	</form>
-	<div style="text-align: center;padding-bottom: 20px">
-		<button onclick="validateFormUtil()">CHECK AMOUNT</button>
-		<button onclick="validateForm(true)">PRINT INVOICE</button>
-	</div>
 </body>
 </html>
