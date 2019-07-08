@@ -165,7 +165,7 @@ function addItem() {
 			return;
 		}
 	var html = '\
-    <fieldset class="itemfieldset" style="margin-bottom: 10px;">\
+    <fieldset class="card2 itemfieldset" style="margin-bottom: 10px;">\
       <legend>ITEM <span style="font-size:25px;font-weight:bold;">['+itemid+']</span> DETAILS</legend>\
       PRODUCT DESC.:<br>\
        <input type="text" name="itemname'+itemid+'" list="itemname'+itemid+'" size="40">\

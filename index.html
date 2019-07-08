@@ -7,8 +7,7 @@
 </head>
 <style>
 	body {
-		background-color:black;
-		color: white;
+      background-color: #d3d3d3;
 	}
 	input[type="checkbox"]{
 	  width: 20px;
@@ -22,34 +21,53 @@
     float: left;width: 400px;
   }
   .myfieldset {
-  	border: solid #111E6C 5px;
+  	border: solid #d3d3d3 5px;
   }
   .boxfieldset {
-  	border: solid #7285A5 5px;
+  	border: solid #005662 5px;
   	max-width: 1200px;
   	margin: 0 auto;
+    background-color: #00838f;
   }
   .itemfieldset {
   	border: solid #008ECC 5px;
   }
+  .card {
+    background-color: #005662;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+    transition: 0.3s;
+  }
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+  }
+  .card2 {
+    background-color: #1446A0;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+    transition: 0.3s;
+  }
+  .card2:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+  }
 </style>
 <body>
 	<fieldset class="boxfieldset">
-		<legend style="text-align: center;font-size: 40px;color: #7285A5">TS INDUSTRIES INVOICE</legend>
+		<legend style="text-align: center;font-size: 40px;color: #005662">TS INDUSTRIES INVOICE</legend>
 		<form name="myForm" method="post">
 		<div style="text-align: center;">
-			<fieldset class="myfieldset" style="display:inline;max-width: 200px">
+			<fieldset class="card myfieldset" style="display:inline;max-width: 200px">
 			  <legend style="text-align: center;">INVOICE DETAILS</legend>
 			  INVOICE NUMBER: <br><input type="number" name="invn"><br><br>
 			  INVOICE DATE: <br><input type="date" name="invd"><br><br>
 			  Transport Details: <br><input type="text" name="trans"><br><br>
 			  Vehicle Number: <br><input type="text" name="vehnum"><br><br>
 			</fieldset>
-			<fieldset class="myfieldset" style="display:inline;max-width: 200px">
+			<fieldset class="card myfieldset" style="display:inline;max-width: 200px">
 			  <legend style="text-align: center;">CONSIGNEE DETAILS</legend>
 			  Details of Consignee/Billed to:<br><textarea name="billto" rows="12" cols="60"></textarea><br>
 			</fieldset>
-		  <fieldset class="myfieldset" style="max-width: 300px;display:inline;">
+		  <fieldset class="card myfieldset" style="max-width: 300px;display:inline;">
 				<legend>ADDITIONAL VALUES</legend>
 				<input type="checkbox" name="igstq"> APPLY IGST(12%)<br><br>
 				<input type="checkbox" name="sgstq"> APPLY SGST(6%)<br><br>
@@ -60,7 +78,7 @@
 			</fieldset>
 		</div>
 		</form>
-		<fieldset class="myfieldset" style="margin: 0 auto;text-align: center;max-width: 200px">
+		<fieldset class="card myfieldset" style="margin: 15px auto;text-align: center;max-width: 200px">
 	  	<legend>ITEM BUTTONS</legend>
 			<div id="itembuttons" style="text-align: center;padding-bottom: 20px">
 		    <button style="background-color:#F1C40F;padding: 10px;" onclick="addItem()"><span>ADD NEW ITEM</span></button>
