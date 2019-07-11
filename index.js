@@ -74,12 +74,12 @@ function generate(doprint) {
 	doc.setFontType("bold");
 	doc.text(String(gross), 187, 263,optionstxt);
 	if(doprint == true)
-	    doc.save('a4.pdf');
+	    doc.save('INVOICE_'+fx["invn"].value+'.pdf');
 	else
 	{
 	    alert(
 	    	"\n----------------------------"+
-	    	"\nITEM COST: "+amtfinal.toFixed(2)+ 
+	    	"\nITEM COST: "+amtfinal.toFixed(2)+
 	    	"\nEXTRA COST: "+extraCost.toFixed(2)+
 	    	"\nTAX: "+totTax+
 	    	"\nADV PROVIDED: "+xadv.toFixed(2)+
