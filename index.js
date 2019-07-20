@@ -48,17 +48,19 @@ function generate(doprint) {
 	var xcgst = parseFloat(0);
 	var xsgst = parseFloat(0);
 	var xigst = parseFloat(0);
+    var xcout = parseFloat(fx["carrout"].value);
+    var itemcost = amtfinal;
+    amtfinal = amtfinal + xcout;
 	if(fx["igstq"].checked == true)
-		xigst = parseFloat(amtfinal*0.06);
+		xigst = parseFloat(amtfinal*0.12);
 	if(fx["cgstq"].checked == true)
 		xcgst = parseFloat(amtfinal*0.06);
 	if(fx["sgstq"].checked == true)
 		xsgst = parseFloat(amtfinal*0.06);
 	var totTax = parseFloat(xigst+xcgst+xsgst).toFixed(2);
-	var xcout = parseFloat(fx["carrout"].value);
 	var xother = parseFloat(fx["otherchg"].value);
 	var extraCost = xcout+xother;
-	var xroundtot=parseFloat(amtfinal+xcgst+xsgst+xigst+xcout+xother);
+	var xroundtot=parseFloat(amtfinal+xcgst+xsgst+xigst+xother);
 	xroundtot = xroundtot.toFixed(0);
 	xroundtot = parseFloat(xroundtot).toFixed(2);
 	var xadv = parseFloat(fx["lessadv"].value);
@@ -79,7 +81,7 @@ function generate(doprint) {
 	{
 	    alert(
 	    	"\n----------------------------"+
-	    	"\nITEM COST: "+amtfinal.toFixed(2)+
+	    	"\nITEM COST: "+itemcost.toFixed(2)+
 	    	"\nEXTRA COST: "+extraCost.toFixed(2)+
 	    	"\nTAX: "+totTax+
 	    	"\nADV PROVIDED: "+xadv.toFixed(2)+
