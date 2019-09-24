@@ -50,7 +50,8 @@ function generate(doprint) {
 	var xigst = parseFloat(0);
     var xcout = parseFloat(fx["carrout"].value);
     var itemcost = amtfinal;
-    amtfinal = amtfinal + xcout;
+    var xother = parseFloat(fx["otherchg"].value);
+    amtfinal = amtfinal + xcout + xother;
 	if(fx["igstq"].checked == true)
 		xigst = parseFloat(amtfinal*0.12);
 	if(fx["cgstq"].checked == true)
@@ -58,9 +59,8 @@ function generate(doprint) {
 	if(fx["sgstq"].checked == true)
 		xsgst = parseFloat(amtfinal*0.06);
 	var totTax = parseFloat(xigst+xcgst+xsgst).toFixed(2);
-	var xother = parseFloat(fx["otherchg"].value);
 	var extraCost = xcout+xother;
-	var xroundtot=parseFloat(amtfinal+xcgst+xsgst+xigst+xother);
+	var xroundtot=parseFloat(amtfinal+xcgst+xsgst+xigst);
 	xroundtot = xroundtot.toFixed(0);
 	xroundtot = parseFloat(xroundtot).toFixed(2);
 	var xadv = parseFloat(fx["lessadv"].value);
