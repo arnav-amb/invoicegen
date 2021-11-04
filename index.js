@@ -53,11 +53,11 @@ function generate(doprint) {
     var xother = parseFloat(fx["otherchg"].value);
     amtfinal = amtfinal + xcout + xother;
 	if(fx["igstq"].checked == true)
-		xigst = parseFloat(amtfinal*0.12);
+		xigst = parseFloat(amtfinal*0.18);
 	if(fx["cgstq"].checked == true)
-		xcgst = parseFloat(amtfinal*0.06);
+		xcgst = parseFloat(amtfinal*0.09);
 	if(fx["sgstq"].checked == true)
-		xsgst = parseFloat(amtfinal*0.06);
+		xsgst = parseFloat(amtfinal*0.09);
 	var totTax = parseFloat(xigst+xcgst+xsgst).toFixed(2);
 	var extraCost = xcout+xother;
 	var xroundtot=parseFloat(amtfinal+xcgst+xsgst+xigst);
