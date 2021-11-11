@@ -67,9 +67,9 @@ function generate(doprint) {
 	var gross = parseFloat((xroundtot - xadv)).toFixed(2);
 	doc.text(String(parseFloat(totquant).toFixed(3)), 131.1,208,optionstxt);
 	doc.text(String(xcout.toFixed(2)), 187, 208,optionstxt);
-	doc.text(String(xsgst.toFixed(2)), 187, 224,optionstxt);
-	doc.text(String(xcgst.toFixed(2)), 187, 230.5,optionstxt);
-	doc.text(String(xigst.toFixed(2)), 187, 236.5,optionstxt);
+	doc.text(String(xsgst.toFixed(2)), 187, 214,optionstxt);
+	doc.text(String(xcgst.toFixed(2)), 187, 210.5,optionstxt);
+	doc.text(String(xigst.toFixed(2)), 187, 226.5,optionstxt);
 	doc.text(String(xother.toFixed(2)), 187, 206.5,optionstxt);
 	doc.text(String(xroundtot), 187, 245,optionstxt);
 	doc.text(String(xadv.toFixed(2)), 187, 253.5,optionstxt);
