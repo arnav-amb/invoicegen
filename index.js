@@ -66,7 +66,7 @@ function generate(doprint) {
 	var xadv = parseFloat(fx["lessadv"].value);
 	var gross = parseFloat((xroundtot - xadv)).toFixed(2);
 	doc.text(String(parseFloat(totquant).toFixed(3)), 131.1,208,optionstxt);
-	doc.text(String(xcout.toFixed(2)), 187, 202,optionstxt);
+	doc.text(String(xcout.toFixed(2)), 187, 208,optionstxt);
 	doc.text(String(xsgst.toFixed(2)), 187, 224,optionstxt);
 	doc.text(String(xcgst.toFixed(2)), 187, 230.5,optionstxt);
 	doc.text(String(xigst.toFixed(2)), 187, 236.5,optionstxt);
