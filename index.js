@@ -70,7 +70,7 @@ function generate(doprint) {
 	doc.text(String(xsgst.toFixed(2)), 187, 224,optionstxt);
 	doc.text(String(xcgst.toFixed(2)), 187, 230.5,optionstxt);
 	doc.text(String(xigst.toFixed(2)), 187, 236.5,optionstxt);
-	doc.text(String(xother.toFixed(2)), 187, 216.5,optionstxt);
+	doc.text(String(xother.toFixed(2)), 187, 226.5,optionstxt);
 	doc.text(String(xroundtot), 187, 245,optionstxt);
 	doc.text(String(xadv.toFixed(2)), 187, 253.5,optionstxt);
 	doc.setFontType("bold");
