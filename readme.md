@@ -1,1 +1,1 @@
-A custom PDF invoice/BILL generator
+A custom PDF invoice/BILL generator use https://arnav-amb.github.io/invoicegen/ to generate bill
